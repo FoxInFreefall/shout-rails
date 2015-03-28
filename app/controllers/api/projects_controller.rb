@@ -1,8 +1,4 @@
-class Api::ProjectsController < ApplicationController
-
-  # skip_before_filter :verify_authenticity_token
-  respond_to :json
-
+class API::ProjectsController < API::BaseController
   def create
 
     project = Project.new(project_params)

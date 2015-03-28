@@ -1,31 +1,12 @@
-class Api::UsersController < ApplicationController
-
-  # skip_before_filter :verify_authenticity_token
-  respond_to :json
+class API::UsersController < API::BaseController
+  skip_before_filter :authenticate_user!
 
   def create
-
-    user = User.new(user_params)
-
-    if user.save
-      render :json => user.errors, :status=>201
-    else
-      warden.custom_failure!
-      render :json => user.errors, :status=>422
-    end
+    user = User.create(user_params)
+    respond_with user, serializer: UserSerializer
   end
 
-  def index
-
-    user = User.find_by_email(params[:email])
-
-    if user
-      render :json => user.errors, :status=>201
-    else
-      warden.custom_failure!
-      render :json => user.errors, :status=>422
-    end
-  end
+  private
 
   def user_params
     params.require(:user).permit(:email, :password)
