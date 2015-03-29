@@ -1,14 +1,17 @@
 class User < ActiveRecord::Base
-  before_save :ensure_authentication_token
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
+  # Association macros
   has_many :collaborations
   has_many :projects, through: :collaborations
 
   has_many :invitations
   has_many :potential_projects, through: :invitations, :source => :project
+
+  # Callbacks
+  before_save :ensure_authentication_token
+
+  # Devise macros
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   def ensure_authentication_token
     if authentication_token.blank?

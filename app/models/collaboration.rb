@@ -1,6 +1,5 @@
 class Collaboration < ActiveRecord::Base
-
-  belongs_to  :user
+  # Association macros
   belongs_to  :project
-
+  belongs_to  :user
 end
