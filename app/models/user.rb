@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   # Association macros
-  has_many :collaborations
+  has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
 
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
   has_many :potential_projects, through: :invitations, :source => :project
 
   # Callbacks

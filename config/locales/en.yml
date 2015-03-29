@@ -21,4 +21,8 @@
 
 en:
   errors:
-      invalid_credentials: "Authentication failed"
+      invalid_credentials: "Sorry"
+      forbidden: "NO!"
+  messages:
+      invalid_credentials: "Try a different email or password"
+      forbidden_modification: "This isn't your project! Don't touch it!"

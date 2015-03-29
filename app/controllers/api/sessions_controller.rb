@@ -7,9 +7,9 @@ class API::SessionsController < API::BaseController
     user = warden.authenticate!(scope: :user)
 
     if user
-      respond_with :api, user
+      respond_with :api, user, serializer: UserLoginSerializer
     else
-      render json: { error: :invalid_credentials, message: t('errors.invalid_credentials') }, status: 401
+      render json: { error: t('errors.invalid_credentials'), message: t('messages.invalid_credentials') }, status: 401
     end
   end
 end
