@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
   has_many :invitations, dependent: :destroy
   has_many :potential_members, through: :invitations, :source => :user
 
+  has_many :tasks
+
   # Validation macros
   validates :name, presence: true
 end
