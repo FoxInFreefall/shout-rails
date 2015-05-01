@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.1'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'active_model_serializers'
