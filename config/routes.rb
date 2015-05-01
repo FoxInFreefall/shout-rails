@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
     resources :projects, only: [:create, :destroy] do
       resources :tasks, only: [:create, :update]
+      delete '/collaboration', to: 'collaborations#destroy'
     end
 
     resources :users do

@@ -23,6 +23,8 @@ en:
   errors:
       invalid_credentials: "Sorry"
       forbidden: "NO!"
+      pointless: "This is pointless"
   messages:
       invalid_credentials: "Try a different email or password"
       forbidden_modification: "This isn't your project! Don't touch it!"
+      pointless_abandonment: "You can't leave a project you're not apart of"
