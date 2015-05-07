@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
 
     resources :projects, only: [:create, :destroy] do
-      resources :tasks, only: [:create, :update]
+      resources :tasks, only: [:create, :show]
       delete '/collaboration', to: 'collaborations#destroy'
     end
 

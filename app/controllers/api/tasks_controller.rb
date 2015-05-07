@@ -6,14 +6,12 @@ class API::TasksController < API::BaseController
     task = Task.create(task_params)
 
     if project && task
-      task.project = project
+      project.tasks << task
 
-      respond_with :api, task
+      respond_with :api, project, task
     else
       respond_with task.errors, status: 422
     end
-
-    render nothing: true
   end
 
   # def destroy
