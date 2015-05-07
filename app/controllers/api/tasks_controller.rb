@@ -31,7 +31,7 @@ class API::TasksController < API::BaseController
 
   # This is good for tidying up the params
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :list)
   end
 
 end
