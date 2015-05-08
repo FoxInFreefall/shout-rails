@@ -27,6 +27,7 @@ en:
       not_found: "Sorry"
       redundant: "Seems familiar..."
       declined_access: "Nope"
+      data_mismatch: "Fishy"
   messages:
       invalid_credentials: "Try a different email or password"
       forbidden_modification: "This isn't your project! Don't touch it!"
@@ -37,3 +38,7 @@ en:
       forbidden_join: "Doesn't look like you've been invited to this project"
       already_joined: "You're already a part of this project!"
       forbidden_decline: "Doesn't look like you were invited to this project anyway"
+      task_project_mismatch: "You shouldn't be doing something to a task that doesn't belong to this project"
+      user_not_apart: "That user doesn't belong to this project"
+      user_already_on_task: "That user's already assigned to that task"
+      pointless_unjoin_task: "That user isn't on that task anyway"

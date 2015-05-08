@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
 
     resources :projects, only: [:create, :destroy] do
-      resources :tasks, only: [:create, :show]
+      resources :tasks, only: [:create, :show] do
+        resources :assignments, only: [:create, :show]
+        delete '/assignments/:user_id', to: 'assignments#destroy'
+      end
       resources :invitations, only: [:create, :show]
       delete '/collaboration', to: 'collaborations#destroy'
       put '/accept', to: 'invitations#update'
