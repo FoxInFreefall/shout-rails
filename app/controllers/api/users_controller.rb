@@ -3,7 +3,7 @@ class API::UsersController < API::BaseController
 
   def create
     user = User.create(user_params)
-    respond_with user, serializer: UserSerializer
+    respond_with :api, user, serializer: UserLoginSerializer
   end
 
   private
