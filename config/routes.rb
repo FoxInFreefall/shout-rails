@@ -8,12 +8,14 @@ Rails.application.routes.draw do
 
     resources :projects, only: [:create, :destroy] do
       resources :tasks, only: [:create, :show]
+      resources :invitations, only: [:create, :show]
       delete '/collaboration', to: 'collaborations#destroy'
+      put '/accept', to: 'invitations#update'
+      delete '/decline', to: 'invitations#destroy'
     end
 
-    resources :users do
-      resources :invitations, only: [:create]
-    end
+    resources :users
+    resources :invitations, only: [:index]
 
     devise_scope :user do
       resources :sessions, only: [:create]
